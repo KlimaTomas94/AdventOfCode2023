@@ -5,13 +5,13 @@ import re
 
 # Find first number in a string
 def find_first_number(input_string):
-    match = re.search(r'(one|1|two|2|three|3|four|4|five|5|six|6|seven|7|eight|8|nine|9)', input_string)
+    match = re.search(r'([0-9]|one|two|three|four|five|six|seven|eight|nine)', input_string)
     return match.group()
 
 # Find last number in a string
 def find_last_number(input_string):
-    matches = re.findall(r'(one|1|two|2|three|3|four|4|five|5|six|6|seven|7|eight|8|nine|9)', input_string)
-    return matches[-1]
+    matches = re.findall(r'(.*([0-9]|one|two|three|four|five|six|seven|eight|nine))', input_string)
+    return matches[-1][1]
 
 # Convert text number into digit
 def text_to_digit(num):
